@@ -1,7 +1,3 @@
-* ✅ Easy to build & run locally (no Kubernetes, no Kafka).
-* ✅ Deployable to a single server or cloud instance.
-* ✅ Still performant enough to handle **thousands of values per second**.
-* ✅ Flexible to grow later.
 
 ---
 

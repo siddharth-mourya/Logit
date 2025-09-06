@@ -28,7 +28,7 @@ Possible Key components:
 
 # Dataflow — sequence (for each device message)
 
-1. Device publishes telemetry JSON to MQTT topic (e.g. `org/{orgId}/device/{deviceId}/telemetry`).
+1. Device publishes telemetry JSON to MQTT topic (e.g. `device/{imei}`).
 2. MQTT Broker receives message; Worker (subscriber) consumes it.
 3. Worker validates message schema and checks device registration + auth.
 4. Worker applies `calibration = value * scaling + offset` (from Port record).
@@ -43,7 +43,7 @@ Possible Key components:
 1. **Device → MQTT Broker**
 
    * Each device sends readings (values from ports) to an MQTT topic.
-   * Example: `org/123/device/456/telemetry`.
+   * Example: `device/456`.
 
 2. **MQTT Worker → Backend**
 

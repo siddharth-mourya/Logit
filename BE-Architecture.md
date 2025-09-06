@@ -320,14 +320,4 @@ Scale:
 
 ---
 
-If this looks good I’ll start the **next message** by generating the **TypeScript project bootstrap** (package.json deps, tsconfig, ESLint basic rules) and then create the **core files** in order:
-
-1. `tsconfig.json` + install packages
-2. `src/config/env.ts` and `src/config/db.ts`
-3. `src/app.ts` + `src/server.ts`
-4. `src/infra/mqttBroker.ts` (MQTT client wrapper)
-5. Basic `modules/organization` and `modules/user` models and routes so admin APIs exist
-6. `workers/mqttWorker.ts` wiring to the broker (no heavy business logic yet)
-
-Tell me to proceed and I’ll generate the exact files and code in the next response.
 

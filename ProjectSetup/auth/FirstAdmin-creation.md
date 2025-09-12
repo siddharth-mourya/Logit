@@ -1,10 +1,6 @@
 We need a way to **bootstrap the very first Company Admin**.
 
----
-
-## 🔑 Common Approaches
-
-### **1. Seed the First User (Recommended for Backend Systems)**
+### Seed the First User (Recommended for Backend Systems)**
 
 * In your backend startup (or with a script), check if any user with `role: "CompanyAdmin"` exists.
 * If not, create one automatically from environment variables.

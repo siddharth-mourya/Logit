@@ -4,24 +4,28 @@ We need a way to **bootstrap the very first Company Admin**.
 
 * In your backend startup (or with a script), check if any user with `role: "CompanyAdmin"` exists.
 * If not, create one automatically from environment variables.
+* This will create a entry in User table
 
 ```ts
 // seedAdmin.ts (run once at startup)
-import User from "./models/User";
 import bcrypt from "bcrypt";
+import { User, UserRoles } from "../User/User.model";
 
-async function seedAdmin() {
-  const existing = await User.findOne({ role: "CompanyAdmin" });
+export async function seedAdmin() {
+  // check if a CompanyAdmin already exists
+  const existing = await User.findOne({ role: UserRoles.CompanyAdmin });
   if (!existing) {
     const hashed = await bcrypt.hash(process.env.DEFAULT_ADMIN_PASSWORD!, 10);
     await User.create({
       email: process.env.DEFAULT_ADMIN_EMAIL,
       password: hashed,
-      role: "CompanyAdmin"
+      role: UserRoles.CompanyAdmin,
+      name: "Default Admin",
     });
     console.log("✅ CompanyAdmin seeded!");
   }
 }
+
 ```
 
 * Add this in your server `index.ts` before starting the app.
